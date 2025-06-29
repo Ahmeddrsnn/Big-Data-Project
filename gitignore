@@ -1,0 +1,13 @@
+.env
+.env.*
+
+data/
+checkpoints/
+*.log
+
+__pycache__/
+*.pyc
+
+*.parquet
+metastore_db/
+.derby/
