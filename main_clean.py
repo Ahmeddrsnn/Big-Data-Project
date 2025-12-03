@@ -910,19 +910,19 @@ def main():
         
         submission_thread.start()
         comment_thread.start()
-        logging.info("🚀 Reddit ingestion threads started.")
+        logging.info(" Reddit ingestion threads started.")
         
         try:
             # Wait for any stream to terminate
             spark.streams.awaitAnyTermination()
         except KeyboardInterrupt:
-            logging.info("🛑 Termination signal received, stopping threads...")
+            logging.info(" Termination signal received, stopping threads...")
             stop_event.set()
             monitor.stop()
             stream_monitor.stop()
             submission_thread.join(timeout=5)
             comment_thread.join(timeout=5)
-            logging.info("✅ All threads stopped gracefully.")
+            logging.info(" All threads stopped gracefully.")
             
     except Exception as e:
         logging.error("Fatal error: %s", str(e), exc_info=True)
